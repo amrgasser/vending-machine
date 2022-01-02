@@ -49,17 +49,17 @@ public class ProductController {
 			) {
 		return productService.deleteProduct(username,password,id);
 	}
-
-	@ResponseBody
-	@PutMapping("/buy/{id}")
-	public String buyProduct(
-			@RequestParam String username,
-			@RequestParam String password,
-			@PathVariable("id") Long product_id,
-			@RequestParam Integer amount
-			) {
-		return productService.buyProduct(username,password,product_id, amount);
-	}
+//
+//	@ResponseBody
+//	@PutMapping("/buy/{id}")
+//	public String buyProduct(
+//			@RequestParam String username,
+//			@RequestParam String password,
+//			@PathVariable("id") Long product_id,
+//			@RequestParam Integer amount
+//			) {
+//		return productService.buyProduct(username,password,product_id, amount);
+//	}
 
 	@ResponseBody
 	@PutMapping("/{id}")

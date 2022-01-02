@@ -62,42 +62,42 @@ public class UserService {
 		
 	}
 
-	public String resetDeposit(String username, String password) {
-		try {
-			User user = userRepository.findByUsername(username);
-			System.out.println(password);
-			System.out.println(user.getPassword());
-			if(user.getPassword().equals(password) == false) {
-				return "incorrect username or password";
-			}
-			user.setDeposit((long) 0);
-			return "Depost reset";
-		} catch (Exception e) {
-			return "Error";
-		}
-	}
-	
-	public String deposit ( String username, String password, Long amount ) {
-        try {
-            User user = userRepository.findByUsername(username);
-            if (user.getPassword().equals(password) && user.getRole().equals("buyer")) {
-                if ( amount == 5 || amount == 10 || amount == 20 || amount == 50 || amount == 100 ) {
-                    user.setDeposit(user.getDeposit()+amount);
-                    userRepository.save(user);
-                    return "Successfully Charged";
-                }
-                else {
-                    return "Amount is Incorrect, Only the following are accepted ( 5, 10, 20, 50, 100 )";
-                }
-            }
-            else {
-                return "Authentication Failed";
-            }
-        }
-        catch (Exception e) {
-            return "Something went wrong";
-        }
-    }
+//	public String resetDeposit(String username, String password) {
+//		try {
+//			User user = userRepository.findByUsername(username);
+//			System.out.println(password);
+//			System.out.println(user.getPassword());
+//			if(user.getPassword().equals(password) == false) {
+//				return "incorrect username or password";
+//			}
+//			user.setDeposit((long) 0);
+//			return "Depost reset";
+//		} catch (Exception e) {
+//			return "Error";
+//		}
+//	}
+//
+//	public String deposit ( String username, String password, Long amount ) {
+//        try {
+//            User user = userRepository.findByUsername(username);
+//            if (user.getPassword().equals(password) && user.getRole().equals("buyer")) {
+//                if ( amount == 5 || amount == 10 || amount == 20 || amount == 50 || amount == 100 ) {
+//                    user.setDeposit(user.getDeposit()+amount);
+//                    userRepository.save(user);
+//                    return "Successfully Charged";
+//                }
+//                else {
+//                    return "Amount is Incorrect, Only the following are accepted ( 5, 10, 20, 50, 100 )";
+//                }
+//            }
+//            else {
+//                return "Authentication Failed";
+//            }
+//        }
+//        catch (Exception e) {
+//            return "Something went wrong";
+//        }
+//    }
 
 	public User getUser(Long id) {
 		return userRepository.findById(id).get();

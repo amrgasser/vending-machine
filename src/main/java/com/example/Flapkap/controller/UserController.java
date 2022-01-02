@@ -41,21 +41,21 @@ public class UserController {
 		return userService.deleteUser(username,password,id);
 	}
 	
-	@PutMapping("/reset")
-	public String resetDeposit(
-			@RequestParam String username,
-			@RequestParam String password
-			) {
-		return userService.resetDeposit(username,password);
-	}
-	
-	@PutMapping("/deposit")	
-	public String deposit(
-			@RequestParam String username,
-			@RequestParam String password,
-			@RequestParam Long amount
-			) {
-		return userService.deposit(username, password, amount);
-	}
+//	@PutMapping("/reset")
+//	public String resetDeposit(
+//			@RequestParam String username,
+//			@RequestParam String password
+//			) {
+//		return userService.resetDeposit(username,password);
+//	}
+//
+//	@PutMapping("/deposit")
+//	public String deposit(
+//			@RequestParam String username,
+//			@RequestParam String password,
+//			@RequestParam Long amount
+//			) {
+//		return userService.deposit(username, password, amount);
+//	}
 }
  

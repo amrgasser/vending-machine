@@ -41,34 +41,34 @@ public class ProductService {
 		}
 	}
 
-	public String buyProduct(String username, String password ,Long product_id, int amount) {
-		try {
-			
-			User user = userRepository.findByUsername(username);
-			if(user.getPassword().equals(password) == false) {
-				return "incorrect username or password";
-			}
-			Product product = productRepository.findById(product_id).get();
-			Integer amountAvailable =product.getAmountAvailable();
-			if(amount > amountAvailable) {
-				return "Not enough quantity available";
-			}
-			int price =  product.getCost();
-			if(user.getDeposit() < amount * price ) {
-				return "Not enough funds";
-			}
-			
-			product.setAmountAvailable(amountAvailable-amount);
-			user.setDeposit(user.getDeposit() - (amount * price));
-			
-			userRepository.save(user);
-			productRepository.save(product);
-			
-			return "Bought successfuly";
-		} catch (Exception e) {
-			return "Something went wrong";
-		}
-	}
+//	public String buyProduct(String username, String password ,Long product_id, int amount) {
+//		try {
+//
+//			User user = userRepository.findByUsername(username);
+//			if(user.getPassword().equals(password) == false) {
+//				return "incorrect username or password";
+//			}
+//			Product product = productRepository.findById(product_id).get();
+//			Integer amountAvailable =product.getAmountAvailable();
+//			if(amount > amountAvailable) {
+//				return "Not enough quantity available";
+//			}
+//			int price =  product.getCost();
+//			if(user.getDeposit() < amount * price ) {
+//				return "Not enough funds";
+//			}
+//
+//			product.setAmountAvailable(amountAvailable-amount);
+//			user.setDeposit(user.getDeposit() - (amount * price));
+//
+//			userRepository.save(user);
+//			productRepository.save(product);
+//
+//			return "Bought successfuly";
+//		} catch (Exception e) {
+//			return "Something went wrong";
+//		}
+//	}
 
 	public String deleteProduct(String username, String password, Long id) {
 		User user = userRepository.findByUsername(username);
